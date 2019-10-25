@@ -33,5 +33,15 @@ namespace RoleplayGame.Library.Test
             }
             Assert.AreEqual(expectedRobes, robes);
         }
+        [Test]
+        public void TestVidaCeroIsDeathFalse()
+        {
+            elf = new Elf("El elfo");
+            elf.ReceiveAttack(120);
+
+            bool expected = false;
+            Assert.AreEqual(expected, elf.IsDead);
+        }
+
     }
 }
