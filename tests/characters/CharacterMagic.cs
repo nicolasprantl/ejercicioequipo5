@@ -28,7 +28,7 @@ namespace RoleplayGame.Library.Test
             Assert.AreEqual(expected, elf.AttackPower);
         }
         [Test]
-        public void TestCharacterSacarMagic()
+        public void TestCharacterSacarMagicAtt()
         {
             string nombre = "elfo";
             Elf elf = new Elf(nombre);
@@ -38,6 +38,17 @@ namespace RoleplayGame.Library.Test
             int expected = (0);
             Assert.AreEqual(expected, elf.AttackPower);
         }
-        
+        [Test]
+        public void TestCharacterSacarMagicDef()
+        {
+            string nombre = "elfo";
+            Elf elf = new Elf(nombre);
+            Magic magic = new Magic();
+            Robes robes = new Robes();
+            elf.AddItem(magic);
+            elf.RemoveItem(magic);
+            int expected = (robes.DefensePower);
+            Assert.AreEqual(expected, elf.AttackPower);
+        }
     }
 }
