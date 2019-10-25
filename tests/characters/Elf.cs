@@ -43,5 +43,34 @@ namespace RoleplayGame.Library.Test
             Assert.AreEqual(expected, elf.IsDead);
         }
 
+        [Test]
+        public void TestPoderDefensa()
+        {
+            elf = new Elf("El elfo");
+            Magic magic = new Magic();
+            elf.AddItem(magic);
+
+            int expectedDefensePower = 0;
+            foreach (IItem item in elf.Items)
+            {
+                if(item is IDefenseItem)
+                {
+                    if(item is Robes)
+                    {
+                        expectedDefensePower = expectedDefensePower + ((Robes)item).DefensePower;
+                    }
+                    if(item is Magic)
+                    {
+                        expectedDefensePower = expectedDefensePower + ((Magic)item).DefensePower;
+                    }
+                    if(item is MagicStick)
+                    {
+                        expectedDefensePower = expectedDefensePower + ((MagicStick)item).DefensePower;
+                    }
+                }
+            }            
+            Assert.AreEqual(expectedDefensePower, elf.DefensePower);
+        }
+
     }
 }
