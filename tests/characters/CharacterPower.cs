@@ -13,8 +13,8 @@ namespace RoleplayGame.Library.Test
             Elf elf = new Elf(nombre);
             Magic magic = new Magic();
             elf.AddItem(magic);
-            int expected = (magic.AttackPower + elf.AttackPower);
-            Assert.AreEqual(expected, gauntlet.AttackPower);
+            int expected = (magic.AttackPower);
+            Assert.AreEqual(expected, elf.AttackPower);
         }
     }
 }
